@@ -8,12 +8,20 @@ logger = logging.getLogger(__name__)
 class PelotonService(ServiceBase):
     ID = "peloton"
     DisplayName = "Peloton"
-    DisplayAbbreviation = "PL"
+    DisplayAbbreviation = "PLN"
+
     AuthenticationType = ServiceAuthenticationType.UsernamePassword
     RequiresExtendedAuthorizationDetails = True
-    PartialSyncRequiresTrigger = True
+    
+    UserAuthorizationURL = None # TODO
 
+    ReceivesActivities = False
+    ReceivesStationaryActivities = False
+    ReceivesNonGPSActivitiesWithOtherSensorData = False
+    SuppliesActivities = True # TODO
     SupportsActivityDeletion = False
+
+    PartialSyncRequiresTrigger = True 
 
     SupportsHR = SupportsCadence = SupportsPower = SupportsCalories = True
 
